@@ -1,0 +1,44 @@
+h1 {
+    font-family: 'Roboto';
+    font-size: 52px;
+    line-height: 61px;
+}
+
+h2 {
+    font-size: 36px;
+    line-height: 59px; 
+    text-transform: uppercase;  
+}
+
+.pokemonInform {
+    display: flex;
+}
+
+.pictureOfPokemon {
+    margin-top: 100px;
+    width: 312px;
+    height: 312px;
+}
+
+.pokemonCharacteristic {
+    display: flex;
+    align-items: flex-end;
+    margin-top: 100px;
+    font-family: 'Roboto';
+    font-size: 36px;
+    line-height: 59px;
+}
+
+.leftSide + .rightSide {
+    margin-left: 40px;
+}
+
+.backBtn {
+    text-transform: uppercase;
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 59px;
+    color: #806BFF;
+    cursor: pointer;
+}
