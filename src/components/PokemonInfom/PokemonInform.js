@@ -9,9 +9,8 @@ export default function PokemonInform(props) {
 
     useEffect(() => {
         setData(props.getPokemonDataReductor())
-    }, [])
+    }, [props.data])
 
-    console.log(data)
     return (
         <div>
             <div className={styles.pokemonInform}>

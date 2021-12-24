@@ -10,6 +10,7 @@ export default function MainPage() {
 
     const [input, setInput] = useState('');
     const [data, setData] = useState();
+    const location = useLocation()
 
 
     const getPokemon = () => {
@@ -19,29 +20,24 @@ export default function MainPage() {
     }
 
     const getPokemonDataReductor = () => {
-        console.log('data', data)
-        if(data){
             return {
-                image: data.sprites.front_default,
-                name: data.name,
-                hp: data.stats[0].base_stat,
-                attack: data.stats[1].base_stat,
-                deffence: data.stats[2].base_stat,
-                specialAttack: data.stats[3].base_stat,
-                specialDeffence: data.stats[4].base_stat,
-                speed: data.stats[5].base_stat,
+                image: data?.sprites.front_default || '',
+                name: data?.name || '',
+                hp: data?.stats[0].base_stat || '',
+                attack: data?.stats[1].base_stat || '',
+                deffence: data?.stats[2].base_stat || '',
+                specialAttack: data?.stats[3].base_stat || '',
+                specialDeffence: data?.stats[4].base_stat || '',
+                speed: data?.stats[5].base_stat || '',
             }
-        }
     }
 
 
     useEffect(() => {
-        fetch(`https://pokeapi.co/api/v2/pokemon/${window.location.pathname.split('/')[2]}`)
+        fetch(`https://pokeapi.co/api/v2/pokemon/${location.pathname.split('/')[2]}`)
         .then((res) => res.json())
         .then((res)=> setData(res))
     },[])
-
-    console.log('data', data)
 
     return (
         <div className={styles.mainPage}>
@@ -52,7 +48,7 @@ export default function MainPage() {
                 <Route path='/' element={
                     <FindPokemonPage data={data} input={input} setInput={setInput} getPokemon={getPokemon}/>
                 }/>
-                <Route path='/pokemon-inform' element={<PokemonInform getPokemonDataReductor={getPokemonDataReductor}/>}/>
+                <Route path='/pokemon-inform/:name' element={<PokemonInform data={data} getPokemonDataReductor={getPokemonDataReductor}/>}/>
             </Routes>
         </div>
     )

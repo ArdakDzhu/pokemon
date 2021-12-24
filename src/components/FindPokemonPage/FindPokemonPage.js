@@ -4,9 +4,8 @@ import Search from '../SearchStr/Search';
 import styles from './FindPokemonPage.module.scss';
 
 export default function FindPokemonPage(props) {
-    console.log(props.data)
     return (
-        <div>
+        <div className={styles.container}>
             <Search input={props.input} setInput={props.setInput} getPokemon={props.getPokemon}/>
             <div className={styles.mainWrapper}>
                 {props.data

@@ -4,7 +4,7 @@ import styles from './PokemonItem.module.scss';
 
 export default function PokemonItem(props) {
     return (
-        <Link to={`/pokemon-inform`}>
+        <Link to={`/pokemon-inform/${props.name}`}>
             <div className={styles.pokemonItem}>
                 <img className={styles.ditto} src={props.img}/>
                 <p>{props.name}</p>
